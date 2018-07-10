@@ -1,10 +1,9 @@
-<h1>Angular SVG & Canvas Demos</h1>
+<!-- <h1>Angular SVG & Canvas Demos</h1>
 <nav>
   <a routerLink="/svg/basic" routerLinkActive="active">Basic SVG</a>
   <a routerLink="/svg/bindings" routerLinkActive="active">SVG with Bindings</a>
   <a routerLink="/svg/components" routerLinkActive="active">SVG with Components</a>
   <a routerLink="/svg/css-animation" routerLinkActive="active">CSS-animated SVG</a>
-  <a routerLink="/svg/ng-animation" routerLinkActive="active">ngAnimated SVG</a>
   <a routerLink="/svg/gsap-animation" routerLinkActive="active">GSAP-animated SVG</a>
   <a routerLink="/canvas/basic" routerLinkActive="active">Basic Canvas</a>
   <a routerLink="/canvas/changes" routerLinkActive="active">Canvas with Bindings</a>
@@ -13,4 +12,33 @@
 
 
 <router-outlet>
-</router-outlet>
+</router-outlet> -->
+
+<div class="container">
+  <ul id="menu"></ul>
+  <div id="content-wrapper">
+    <div id="example-wrapper">
+      <div class="scrollContent">
+  
+        <button (click)="doTwinAnimation()" style="width: 200px; height: 40px; background-color: gray;"></button>
+  
+        <section class="demo" style="overflow-x: hidden">
+          <div id="trigger4" class="spacer s1"></div>
+          <div class="animate4 box2 black outline">
+          </div>
+          <div class="animate4 box2 black outline"></div>
+          <div class="animate4 box2 black outline"></div>
+          <div class="animate4 box2 black outline"></div>
+          <div class="animate4 box2 black outline"></div>
+          <div class="animate4 box2 black outline"></div>
+          <div class="animate4 box2 black outline"></div>
+          <div class="animate4 box2 black outline"></div>
+          <div class="animate4 box2 black outline"></div>
+          <div class="animate4 box2 black outline"></div>
+        </section>
+  
+        <div class="spacer s_viewport"></div>
+      </div>
+    </div>
+  </div>
+  </div>
