@@ -1,4 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+declare var ease, TimelineMax,TweenMax,Power4,Power1,Power2,Power3,Bounce,Cubic, Elastic:any;
+import "gsap";
 
 @Component({
   selector: 'app-animated-logo-gsap',
