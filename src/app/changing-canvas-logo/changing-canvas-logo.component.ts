@@ -33,7 +33,6 @@ export class ChangingCanvasLogoComponent implements OnInit, OnDestroy {
     }
   }
 
-
   private updateParticles() {
     this.particles = [];
     for (let i = 0 ; i < 50000 ; i++) {

@@ -14,6 +14,8 @@
 <router-outlet>
 </router-outlet>
 
+<!-- Scroll magic - Advanced Tweening -->
+
 <div class="container">
   <ul id="menu"></ul>
   <div id="content-wrapper">
@@ -42,3 +44,27 @@
     </div>
   </div>
   </div>
+
+  <!-- Callback duration -->
+
+  <ul id="menu"></ul>
+	<div id="content-wrapper">
+		<div id="example-wrapper">
+			<div class="scrollContent">
+          
+        <button (click)="doCallBackAnimation()" style="width: 200px; height: 40px; background-color:red;"></button>
+
+				<section class="demo" style="perspective: 300px">
+					<div class="spacer s1"></div>
+					<div class="spacer s1" id="trigger"></div>
+					<div class="spacer s0"></div>
+					<div id="animate" class="box1 blue">
+						<p>Da Flippity Flop</p>
+						<a href="#" class="viewsource">view source</a>
+					</div>
+					<div class="spacer s2"></div>
+				</section>
+				<div class="spacer s_viewport"></div>
+			</div>
+		</div>
+	</div>
