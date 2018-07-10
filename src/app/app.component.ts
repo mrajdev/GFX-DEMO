@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-declare var ease, TimelineMax,TweenMax,Power4,Power1,Power2,Power3,Bounce,Cubic,Back, Elastic:any;
+declare var TweenMax,Back:any;
 import "gsap";
 import * as ScrollMagic from 'scrollmagic';
 
