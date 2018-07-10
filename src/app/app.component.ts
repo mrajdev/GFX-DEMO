@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-declare var TweenMax,Back:any;
-import "gsap";
-import * as ScrollMagic from 'scrollmagic';
+import {TweenLite, Power1, Power2, TimelineMax, TweenMax, Back} from "gsap";
+import ScrollMagic from 'scrollmagic';
+import "imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js";
+import "imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js";
+import 'imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/ScrollMagic.js';
 
 @Component({
   selector: 'app-root',
