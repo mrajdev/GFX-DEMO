@@ -14,6 +14,7 @@ export class AppComponent {
   @ViewChild('word') word: ElementRef;
   @ViewChild('dot') dot: ElementRef;
   ctrl = new ScrollMagic.Controller();
+  strokeLength = "";
 
   doTwinAnimation() {
     let tween = TweenMax.staggerFromTo(".animate4", 2, {left: 700}, {left: 0, ease: Back.easeOut}, 0.15);
@@ -38,6 +39,7 @@ export class AppComponent {
 
   pathPrepare (el) {
       var lineLength = el.getTotalLength();
+      this.strokeLength = lineLength;
       // el.css("stroke-dasharray", lineLength);
       // el.css("stroke-dashoffset", lineLength);
   }
