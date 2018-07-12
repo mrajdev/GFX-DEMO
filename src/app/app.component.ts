@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import {TweenLite, Power1, Power2, TimelineMax, TweenMax, Back} from "gsap";
+import { Component, ViewChild, ElementRef } from '@angular/core';
+// import "imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js";
+// import "imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js";
+// import 'imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/ScrollMagic.js';
 import ScrollMagic from 'scrollmagic';
-import "imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js";
-import "imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js";
-import 'imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/ScrollMagic.js';
+import {Linear, TimelineMax, TweenMax, Back} from "gsap";
 
 @Component({
   selector: 'app-root',
@@ -11,6 +11,8 @@ import 'imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/Scroll
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  @ViewChild('word') word: ElementRef;
+  @ViewChild('dot') dot: ElementRef;
   ctrl = new ScrollMagic.Controller();
 
   doTwinAnimation() {
@@ -26,33 +28,36 @@ export class AppComponent {
   }
 
   doCallBackAnimation() {
-    let tween = TweenMax.to("#animate", 0.5, {rotationY: 180});
+    let tween = TweenMax.to("#animate", 2, {rotationY: 180});
     // build scene and supply getMousePos function as duration
-    new ScrollMagic.Scene({triggerElement: "#trigger", duration: 0.15})
+    new ScrollMagic.Scene({triggerElement: "#trigger", duration: 0})
+            .setTween(tween)
+            .addIndicators()
+            .addTo(this.ctrl);
+  }
+
+  pathPrepare (el) {
+      var lineLength = el.getTotalLength();
+      // el.css("stroke-dasharray", lineLength);
+      // el.css("stroke-dashoffset", lineLength);
+  }
+
+  doSvgDrawing() {
+  
+    // prepare SVG
+    this.pathPrepare(this.word.nativeElement);
+    this.pathPrepare(this.dot.nativeElement);
+
+    // build tween
+    let tween = new TimelineMax()
+      .add(TweenMax.to(this.word, 0.9, {strokeDashoffset: 0, ease:Linear.easeNone})) // draw word for 0.9
+      .add(TweenMax.to(this.dot, 0.1, {strokeDashoffset: 0, ease:Linear.easeNone}))  // draw dot for 0.1
+      .add(TweenMax.to("path", 1, {stroke: "#33629c", ease:Linear.easeNone}), 0);			// change color during the whole thing
+
+    // build scene
+    var scene = new ScrollMagic.Scene({triggerElement: "#trigger1", duration: 200, tweenChanges: true})
             .setTween(tween)
             .addIndicators() // add indicators (requires plugin)
             .addTo(this.ctrl);
   }
-						// // make a variable to store the mouse pos.
-						// var mouseTopPerc = 0;
-						// // function to be used to retrieve variable
-						// function getMousePos() {
-						// 	return (mouseTopPerc * 400) + 10;
-						// }
-						// // update variable on mouse move
-						// $("body").on("mousemove", function (e) {
-						// 	mouseTopPerc = e.clientY/$(this).innerHeight();
-						// });							
-
-						// // init controller
-						// var controller = new ScrollMagic.Controller();
-
-						// // build tween
-						// var tween = TweenMax.to("#animate", 0.5, {rotationY: 180});
-
-						// // build scene and supply getMousePos function as duration
-						// var scene = new ScrollMagic.Scene({triggerElement: "#trigger", duration: getMousePos})
-						// 				.setTween(tween)
-						// 				.addIndicators() // add indicators (requires plugin)
-						// 				.addTo(controller);
 }
