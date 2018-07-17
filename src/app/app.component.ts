@@ -15,6 +15,7 @@ export class AppComponent {
   @ViewChild('dot') dot: ElementRef;
   ctrl = new ScrollMagic.Controller();
   strokeLength = "";
+  strokeCss = false;
 
   doTwinAnimation() {
     let tween = TweenMax.staggerFromTo(".animate4", 2, {left: 700}, {left: 0, ease: Back.easeOut}, 0.15);
@@ -37,29 +38,12 @@ export class AppComponent {
             .addTo(this.ctrl);
   }
 
-  pathPrepare (el) {
-      var lineLength = el.getTotalLength();
-      this.strokeLength = lineLength;
-      // el.css("stroke-dasharray", lineLength);
-      // el.css("stroke-dashoffset", lineLength);
-  }
-
   doSvgDrawing() {
   
-    // prepare SVG
-    this.pathPrepare(this.word.nativeElement);
-    this.pathPrepare(this.dot.nativeElement);
+    this.strokeCss = true;
 
     // build tween
     let tween = new TimelineMax()
-      .add(TweenMax.to(this.word, 0.9, {strokeDashoffset: 0, ease:Linear.easeNone})) // draw word for 0.9
-      .add(TweenMax.to(this.dot, 0.1, {strokeDashoffset: 0, ease:Linear.easeNone}))  // draw dot for 0.1
-      .add(TweenMax.to("path", 1, {stroke: "#33629c", ease:Linear.easeNone}), 0);			// change color during the whole thing
-
-    // build scene
-    var scene = new ScrollMagic.Scene({triggerElement: "#trigger1", duration: 200, tweenChanges: true})
-            .setTween(tween)
-            .addIndicators() // add indicators (requires plugin)
-            .addTo(this.ctrl);
+      .add(TweenMax.to("path", 10, {stroke: "red", ease:Linear.easeNone}), 0);			// change color during the whole thing
   }
 }
