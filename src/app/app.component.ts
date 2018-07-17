@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, Input } from '@angular/core';
 // import "imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js";
 // import "imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js";
 // import 'imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/ScrollMagic.js';
@@ -18,6 +18,28 @@ export class AppComponent {
   strokeLength = "";
   strokeCss = false;
   dotStrokeCss = false;
+
+  @ViewChild('script') script: ElementRef;
+  @Input()
+  src: string;
+
+  @Input()
+  type: string;
+
+  convertToScript() {
+    var element = this.script.nativeElement;
+    var script = document.createElement("script");
+    script.src = this.src ? this.src : "https://nextparticle.nextco.de/nextparticle.min.js";
+    if (this.src) {
+        script.src = this.src;
+    }
+  
+    element.append(script);
+}
+
+ngAfterViewInit() {
+    this.convertToScript();
+}
 
   doTwinAnimation() {
     let tween = TweenMax.staggerFromTo(".animate4", 2, {left: 700}, {left: 0, ease: Back.easeOut}, 0.15);
