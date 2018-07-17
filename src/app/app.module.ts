@@ -14,7 +14,6 @@ import { AnimatedLogoGsapComponent } from './animated-logo-gsap/animated-logo-gs
 import { BasicCanvasLogoComponent } from './basic-canvas-logo/basic-canvas-logo.component';
 import { AnimatedCanvasLogoComponent } from './animated-canvas-logo/animated-canvas-logo.component';
 import 'gsap';
-import { ZUnderline } from './z-underline';
 
 /** Map relative paths to URLs. */
 const map: any = {
@@ -31,7 +30,6 @@ const packages: any = {
 @NgModule({
   declarations: [
     AppComponent,
-    ZUnderline,
     BasicLogoComponent,
     LogoWithBindingsComponent,
     AnimatedLogoCssComponent,

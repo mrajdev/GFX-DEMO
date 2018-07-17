@@ -16,6 +16,7 @@ export class AppComponent {
   ctrl = new ScrollMagic.Controller();
   strokeLength = "";
   strokeCss = false;
+  dotStrokeCss = false;
 
   doTwinAnimation() {
     let tween = TweenMax.staggerFromTo(".animate4", 2, {left: 700}, {left: 0, ease: Back.easeOut}, 0.15);
@@ -39,8 +40,11 @@ export class AppComponent {
   }
 
   doSvgDrawing() {
-  
     this.strokeCss = true;
+
+    setTimeout(()=>{
+      this.dotStrokeCss = true;
+    },5000);
 
     // build tween
     let tween = new TimelineMax()
