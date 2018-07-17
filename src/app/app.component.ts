@@ -4,6 +4,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 // import 'imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/ScrollMagic.js';
 import ScrollMagic from 'scrollmagic';
 import {Linear, TimelineMax, TweenMax, Back} from "gsap";
+import { trigger, state, style, transition, animate } from '@angular/animations'
 
 @Component({
   selector: 'app-root',
@@ -44,10 +45,86 @@ export class AppComponent {
 
     setTimeout(()=>{
       this.dotStrokeCss = true;
-    },5000);
-
-    // build tween
+      // build tween
     let tween = new TimelineMax()
-      .add(TweenMax.to("path", 10, {stroke: "red", ease:Linear.easeNone}), 0);			// change color during the whole thing
+      .add(TweenMax.to("path", 5, {stroke: "red", ease:Linear.easeNone}), 0);			// change color during the whole thing
+    },5000);
   }
 }
+
+
+// import { Component } from '@angular/core';
+// import { trigger, state, style, transition, animate } from '@angular/animations'
+
+// @Component({
+//   selector: 'app-root',
+//   template: `
+//     <div class="tp-wrapper">
+//       <div class="tp-box" (click)="toggleFlip()" [@flipState]="flip">
+//         <div class="tp-box__side tp-box__front">Front
+//         </div>
+//         <div class="tp-box__side tp-box__back">Back
+//         </div>
+//       </div>
+//     </div>
+//   `,
+//   styles: [
+//     `
+//     .tp-wrapper {
+//       perspective: 800px;
+//     }
+
+//     .tp-box {
+//       position: relative;
+//       width: 200px;
+//       height: 100px;
+//       margin: 3rem auto;
+//       transform-style: preserve-3d;
+//       transition: transform 1s;
+//     }
+//     .tp-box__side {
+//       width: 100%;
+//       height: 100%;
+//       position: absolute;
+//       backface-visibility: hidden;
+//       color: #fff;
+//       text-align: center;
+//       line-height: 100px;
+//       font-size: 24px;
+//       font-weight: 700;
+//       cursor: pointer;
+//       user-select: none;
+//     }
+//     .tp-box__front {
+//       background: #f30d36;
+//     }
+//     .tp-box__back {
+//       background: #23262d;
+//       transform: rotateY(179.9deg);
+//     }
+
+//     `
+//   ],
+//   animations: [
+//     trigger('flipState', [
+//       state('active', style({
+//         transform: 'rotateY(179.9deg)'
+//       })),
+//       state('inactive', style({
+//         transform: 'rotateY(0)'
+//       })),
+//       transition('active => inactive', animate('500ms ease-out')),
+//       transition('inactive => active', animate('500ms ease-in'))
+//     ])  
+//   ]
+// })
+// export class AppComponent {
+
+//   flip: string = 'inactive';
+//   constructor() {}
+
+//   toggleFlip() {
+//     this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
+//   }
+
+// }
