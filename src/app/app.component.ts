@@ -19,26 +19,17 @@ export class AppComponent {
   strokeCss = false;
   dotStrokeCss = false;
 
-  @ViewChild('script') script: ElementRef;
-  @Input()
-  src: string;
+  @ViewChild('particleDiv') particleDiv: ElementRef;
 
-  @Input()
-  type: string;
-
-  convertToScript() {
-    var element = this.script.nativeElement;
-    var script = document.createElement("script");
-    script.src = this.src ? this.src : "https://nextparticle.nextco.de/nextparticle.min.js";
-    if (this.src) {
-        script.src = this.src;
-    }
-  
-    element.append(script);
+  addingNextParticleScriptToImageTag() {
+    var element = this.particleDiv.nativeElement;
+    var particleDivScript = document.createElement("script");
+    particleDivScript.src = "https://nextparticle.nextco.de/nextparticle.min.js";
+    element.append(particleDivScript);
 }
 
 ngAfterViewInit() {
-    this.convertToScript();
+    this.addingNextParticleScriptToImageTag();
 }
 
   doTwinAnimation() {
