@@ -14,6 +14,7 @@ import { AnimatedLogoGsapComponent } from './animated-logo-gsap/animated-logo-gs
 import { BasicCanvasLogoComponent } from './basic-canvas-logo/basic-canvas-logo.component';
 import { AnimatedCanvasLogoComponent } from './animated-canvas-logo/animated-canvas-logo.component';
 import 'gsap';
+import { MobileAppComponent } from './mobile-app/mobile-app.component';
 
 /** Map relative paths to URLs. */
 const map: any = {
@@ -35,7 +36,8 @@ const packages: any = {
     AnimatedLogoCssComponent,
     AnimatedLogoGsapComponent,
     BasicCanvasLogoComponent,
-    AnimatedCanvasLogoComponent
+    AnimatedCanvasLogoComponent,
+    MobileAppComponent
   ],
   imports: [
     BrowserModule,
