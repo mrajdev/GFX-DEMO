@@ -190,11 +190,12 @@
 // section.demo * {
 // 	font-size: 13px;
 // }
-// section.demo {
-// 	font-size: 0;
-// 	text-align: center;
-// 	// background-image: url("../img/example_bg_v.png");
-// }
+section.demo {
+	font-size: 0;
+	text-align: center;
+	margin-left: 5px;
+	// background-image: url("../img/example_bg_v.png");
+}
 // section.demo.fullheight {
 // 	min-height: 100%;
 // }
@@ -1217,20 +1218,20 @@
 //   color: #aaa
 // }
 
-// .svgpath {
-// 	stroke-dasharray: 1000;
-// 	stroke-dashoffset: 0;
-// 	animation: dash 5s linear;
-//   }
+.svgpath {
+	stroke-dasharray: 1000;
+	stroke-dashoffset: 0;
+	animation: dash 5s linear;
+  }
   
-//   @keyframes dash {
-// 	from {
-// 	  stroke-dashoffset: 1000;
-// 	}
-// 	to {
-// 	  stroke-dashoffset: 0;
-// 	}
-//   }
+  @keyframes dash {
+	from {
+	  stroke-dashoffset: 1000;
+	}
+	to {
+	  stroke-dashoffset: 0;
+	}
+  }
 
 //   #pinContainer {
 // 	width: 100%;
@@ -1248,7 +1249,6 @@
 // 	width: 25%; /* relative to parent -> 25% of 400% = 100% of window width */
 // 	float: left;
 // }
-
 
 
 $finalHeight: 320px;

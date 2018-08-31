@@ -19,6 +19,18 @@ export class AppComponent {
   strokeLength = "";
   strokeCss = false;
   dotStrokeCss = false;
+  appList = ["","","","","","","","","",""];
+  
+  mCssAnim = true;
+  a1CssAnim = false;
+  dCssAnim = false;
+  hCssAnim = false;
+  a2CssAnim = false;
+  nCssAnim = false;
+  rCssAnim = false;
+  a3CssAnim = false;
+  jCssAnim = false;
+  sCssAnim = false;
 
   @ViewChild('particleDiv') particleDiv: ElementRef;
   @ViewChild('pinContainer') pinContainer: ElementRef;
@@ -41,6 +53,10 @@ export class AppComponent {
     // this.addingNextParticleScriptToImageTag();
     // this.initsectionWipe();
     // var trigger = document.getElementById("#trigger4");
+
+    setTimeout(()=>{
+    this.doSvgDrawing();
+    },1000);
   }
 
   initsectionWipe() {
@@ -141,18 +157,37 @@ export class AppComponent {
 
   doSvgDrawing() {
     if (!this.strokeCss) {
-      this.strokeCss = true;
-
+      this.mCssAnim = true;  
       setTimeout(()=>{
-        this.dotStrokeCss = true;
-        // build tween
-      let tween = new TimelineMax()
-        .add(TweenMax.to("path", 5, {stroke: "red", ease:Linear.easeNone}), 0);			// change color during the whole thing
-      },5000);
+        this.a1CssAnim = true;
+        setTimeout(()=>{
+          this.dCssAnim = true;
+          setTimeout(()=>{
+            this.hCssAnim = true;
+            setTimeout(()=>{
+            this.a2CssAnim = true;
+            setTimeout(()=>{
+            this.nCssAnim = true;
+            setTimeout(()=>{
+              this.rCssAnim = true;
+              setTimeout(()=>{
+              this.a3CssAnim = true;
+              setTimeout(()=>{
+              this.jCssAnim = true;
+              setTimeout(()=>{
+              this.sCssAnim = true;
+              },1500);
+              },1500);
+              },1500);
+            },1800);
+            },1500);
+            },1500);
+          },1500);
+        },1500);
+      },1500);
     }
     else {
-      this.strokeCss = false;
-      this.dotStrokeCss = false;
+
     }
   }
 }
